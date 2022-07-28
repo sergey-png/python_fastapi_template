@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "Template"
+version = "0.1.0"
+description = "Template"
+authors = []
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = {extras = ["dotenv"], version = "^1.9.1"}
+SQLAlchemy = "^1.4.39"
+fastapi = "^0.79.0"
+starlette = "^0.19.1"
+SQLAlchemy-Utils = "^0.38.3"
+alembic = "^1.8.1"
+aiohttp = "^3.8.1"
+psycopg2-binary = "^2.9.3"
+httpx = "^0.23.0"
+mock = "^4.0.3"
+
+[tool.poetry.dev-dependencies]
+black = "^22.6.0"
+autoflake = "^1.4"
+isort = "^5.10.1"
+unify = "^0.5"
+flake8 = "^4.0.1"
+pylint = "^2.14.5"
+mypy = "^0.971"
+safety = "^2.1.1"
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+pytest-deadfixtures = "^2.2.1"
+pytest-mock = "^3.8.2"
+pytest-aiohttp = "^1.0.4"
+freezegun = "^1.2.1"
+ConfigArgParse = "^1.5.3"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
