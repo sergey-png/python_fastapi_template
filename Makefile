@@ -35,7 +35,7 @@ install: ## Install dependencies
 
 .PHONY: run
 run: ## Run App
-	$(POETRY_RUN) python -m app
+	$(POETRY_RUN) uvicorn app.__main__:app --reload --port=8080
 
 .PHONY: test
 test: ## Runs pytest with coverage
@@ -94,3 +94,15 @@ docker-clean: ## Docker prune -f
 
 .PHONY: docker
 docker: docker-clean docker-build docker-up docker-clean ## Docker prune, up, run and prune
+
+.PHONY: db
+db: ## create db in docker-container
+	docker-compose -f docker-compose.yml up -d --remove-orphans
+
+.PHONY: migrate
+migrate: ## migrate db
+	cd app/db && alembic upgrade head
+
+.PHONY: revision
+revision: ## make revision of DB
+	cd app/db && alembic revision --autogenerate
